@@ -17,8 +17,7 @@ int main()
 
         case 2:printf("\n Enter decimal no ");
                scanf("%d",&d);
-               dectobinary(d);
-
+               dectobinary(d); equivant is %d",)
       }
 
     return 0;
@@ -29,6 +28,11 @@ int main()
 
 void binarytodec(int b)
 {
+    int sum=0;
+    while(b>0)
+    {
+
+    }
 
 
 }
@@ -37,12 +41,13 @@ void binarytodec(int b)
 void dectobinary(int d)
 {
    int num,rem;
-
+   while(d>0)
+   {
      num=d%2+10;
-     //num=d%2;
-     //rem=num/10;
+     num=d%2;
+     rem=num/10;
      printf("\n number is %d",num);
-
+   }
 
 
 }
