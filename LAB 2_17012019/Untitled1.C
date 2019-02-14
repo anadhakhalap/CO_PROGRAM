@@ -2,20 +2,20 @@
 #include<stdlib.h>
 #include<string.h>
 #include<math.h>
-void decimal_hexadecimal(int num);//
-void binary_hexadecimal(int num);//
-void hexadecimal_decimal(char hex[],int);//
-void hexadecimal_binary(char hex[],int);//
+void decimal_hexadecimal(int num);
+void binary_hexadecimal(int num);
+void hexadecimal_decimal(char hex[]);
+void hexadecimal_binary(char hex[]);
 void octal_hexadecimal(int num);
-void hexadecimal_octal(char hex[],int);
-void octal_binary(int );
+void hexadecimal_octal(char hex[]);
+void octal_binary(int num);
 void binary_octal(int num);
 
 
 int main()
 {
 
-long int num,ch,i;
+ int num,ch,i;
  char hex[5];
 	do
 	{
@@ -42,40 +42,36 @@ long int num,ch,i;
 			case 3:printf("\nEnter a number in hexadecimal form: ");
 			       for(i=0;i<5;i++)
 			           scanf("%c",&hex[i]);
-			       hexadecimal_decimal(hex,5);
-                   hexadecimal_binary(hex,5);
+			       hexadecimal_decimal(hex);
+                   hexadecimal_binary(hex);
                    break;
             case 4:printf("\n Enter a number in octal number");
                    for(i=0;i<5;i++)
                    {
-                     scanf("%d",&num);
-                     octal_hexadecimal(num);
-                   }
+                      scanf("%d",&num);
+                  octal_hexadecimal(num);
+                  }
                    break;
             case 5:printf("\nEnter a number in hexadecimal form ");
                    for(i=0;i<5;i++)
                    {
                       scanf("%d",&num);
-                      hexadecimal_octal(hex,5);
+                   hexadecimal_octal(hex[]);
                    }
                    break;
             case 6:printf("\nEnter a number in octal form ");
-                   for(i=0;i<5;i++)
-                    {
+                     for(i=0;i<5;i++)
+                     {
                       scanf("%d",&num);
                       octal_binary(num);
-                    }
+                      }
                    break;
             case 7:printf("\nEnter a number in binary form");
-                   for(i=0;i<5;i++)
-                   {
-                     scanf("%d",&num);
-                     binary_octal(num);
-                   }
-
+                    for(i=0;i<5;i++)
+                      scanf("%d",&num);
+                      binary_octal(num);
                    break;
 			case 8:exit(1);
-			        break;
 			default:printf("Invalid choice!!!");
 		}
 	}while(ch!=5);
@@ -109,20 +105,43 @@ void decimal_hexadecimal(int num)//COORRCT CODE
 }
 
 
+
+
+
+
+
 void binary_hexadecimal(int binaryval)
 {
     int hexadecimalval = 0, i = 1, remainder;
       while (binaryval != 0)
+
     {
+
+
         remainder = binaryval % 10;
+
         hexadecimalval = hexadecimalval + remainder * i;
+
         i = i * 2;
+
         binaryval = binaryval / 10;
+
     }
 
     printf("Equivalent hexadecimal value: %d", hexadecimalval);
+
     return ;
+
 }
+
+
+
+
+
+
+
+
+
 
 
 void hexadecimal_decimal(char hexVal[])
@@ -218,86 +237,7 @@ void hexadecimal_binary(char hexVal[])
 
 }
 
-
-
-// Hexadecimal Number to Octal Number
-
-void hexadecimal_octal(char hex[],int 5)
-{
-    char octal, bin;
-
-    // convert HexaDecimal to Binary
-    bin = hexadecimal_binary(hex);
-
-    // convert Binary to Octal
-    octal = binary_octal(bin);
-    printf("\nThe octal equivalentr is %d",octal);
-
-    return ;
-}
-
-void octal_binary(char octalnum[],int i)
-{
-    while (octalnum[i])
-    {
-        switch (octalnum[i])
-        {
-
-        case '0':printf("000"); break;
-
-        case '1':printf("001"); break;
-
-        case '2':printf("010"); break;
-
-        case '3':printf("011"); break;
-
-        case '4':printf("100"); break;
-
-        case '5':printf("101"); break;
-
-        case '6':printf("110"); break;
-
-        case '7':printf("111"); break;
-
-        default:printf("\n Invalid octal digit %c ", octalnum[i]);
-
-        return ;
-
-}
-
-
-
-
-
-void binary_octal(int binaryNumber[],int i)
-
-{{
-   int octalNumber = 0, decimalNumber = 0, i = 0;
-    while(binaryNumber != 0)
-    {
-        decimalNumber += (binaryNumber%10) * pow(2,i);
-        ++i;
-        binaryNumber/=10;
-    }
-
-    i = 1;
-    while (decimalNumber != 0)
-    {
-        octalNumber += (decimalNumber % 8) * i;
-        decimalNumber /= 8;
-        i *= 10;
-    }
-    printf("\n Octal equyivalent of Binary is %d ",octalNumber);
-
-    return;
-
-}
-}
-
-
-
-/*
-void octal_hexadecimal(int hex[],int num)
+/*void octal_hexadecimal(int num)
 {
 while(tempOctal > 0)
     {
@@ -308,10 +248,10 @@ while(tempOctal > 0)
         place *= 1000;
     }
 
-
-      //Binary to hexadecimal conversion
-
-    while(binary > 0)
+    /*
+     * Binary to hexadecimal conversion
+     */
+    /*while(binary > 0)
     {
         rem = binary % 10000;
         switch(rem)
@@ -375,9 +315,99 @@ while(tempOctal > 0)
     printf("Hexadecimal number: %s", hex);
 
 
+}*/
+
+// Hexadecimal Number to Octal Number
+void hexadecimal_octal(char hex[])
+{
+    int octal, bin;
+
+    // convert HexaDecimal to Binary
+    bin = hexadecimal_binary(hex);
+
+    // convert Binary to Octal
+    octal = binary_octal(bin);
+    printf("\nThe octal equivalentr is %d",octal);
+
+    return ;
 }
 
-*/
+void octal_binary(char num[i])
+{
+      while (octalnum[i])
+
+    {
+
+        switch (octalnum[i])
+
+        {
+
+        case '0':
+
+            printf("000"); break;
+
+        case '1':
+
+            printf("001"); break;
+
+        case '2':
+
+            printf("010"); break;
+
+        case '3':
+
+            printf("011"); break;
+
+        case '4':
+
+            printf("100"); break;
+
+        case '5':
+
+            printf("101"); break;
+
+        case '6':
+
+            printf("110"); break;
+
+        case '7':
+
+            printf("111"); break;
+
+        default:
+
+            printf("\n Invalid octal digit %c ", octalnum[i]);
+
+            return ;
 
 
+}
+
+
+
+
+
+void binary_octal(int binaryNumber)
+{
+    int octalNumber = 0, decimalNumber = 0, i = 0;
+
+    while(binaryNumber != 0)
+    {
+        decimalNumber += (binaryNumber%10) * pow(2,i);
+        ++i;
+        binaryNumber/=10;
+    }
+
+    i = 1;
+
+    while (decimalNumber != 0)
+    {
+        octalNumber += (decimalNumber % 8) * i;
+        decimalNumber /= 8;
+        i *= 10;
+    }
+    printf("\n Octal equyivalent of Binary is %d ",octalNumber);
+
+    return ;
+}
 
