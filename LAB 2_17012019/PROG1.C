@@ -222,9 +222,9 @@ void hexadecimal_binary(char hexVal[])
 
 // Hexadecimal Number to Octal Number
 
-void hexadecimal_octal(char hex[],int 5)
+void hexadecimal_octal(char hex[],int n)
 {
-    char octal, bin;
+    int octal, bin;
 
     // convert HexaDecimal to Binary
     bin = hexadecimal_binary(hex);
@@ -235,6 +235,7 @@ void hexadecimal_octal(char hex[],int 5)
 
     return ;
 }
+
 
 void octal_binary(char octalnum[],int i)
 {
@@ -264,6 +265,8 @@ void octal_binary(char octalnum[],int i)
         return ;
 
 }
+}
+}
 
 
 
@@ -271,8 +274,9 @@ void octal_binary(char octalnum[],int i)
 
 void binary_octal(int binaryNumber[],int i)
 
-{{
-   int octalNumber = 0, decimalNumber = 0, i = 0;
+{
+   int octalNumber = 0, decimalNumber = 0;
+   int i = 0;
     while(binaryNumber != 0)
     {
         decimalNumber += (binaryNumber%10) * pow(2,i);
@@ -292,9 +296,11 @@ void binary_octal(int binaryNumber[],int i)
     return;
 
 }
+
+
+void octal_hexadecimal(int hex[],int num)
+{
 }
-
-
 
 /*
 void octal_hexadecimal(int hex[],int num)
